@@ -3,7 +3,7 @@
 Paste this into a fresh Hermes session started in your chosen empty project directory. Use the same prompt in PowerShell and WSL, each in a separate project folder. This prompt does not choose a machine-specific output path.
 
 ```text
-Use /aegis, the canonical Hermes port of Aegis 2, not an older installed version. Before writing files, report the loaded skill name/source, current working directory and writable workspace. If the canonical aegis skill is unavailable, stop and report that; do not silently substitute another version. Keep all project artifacts and scratch output inside the current project. Do not inspect credentials or unrelated projects.
+Use /aegis, the canonical Hermes skill, at exactly version 2.1.0. Before writes, verify and report the loaded name, top-level version, actual source, working directory, and writable workspace. Stop without writes if the skill, version, or source is unavailable or mismatched; do not substitute another package or version. Keep all project artifacts and scratch output inside the current project. Do not inspect credentials or unrelated projects.
 
 Build a polished, fully functional, single-page HTML/JavaScript calculator. This is a local offline baseline test, not a public service.
 

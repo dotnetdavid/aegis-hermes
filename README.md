@@ -1,72 +1,65 @@
-# Aegis 2 for Hermes: Leaner and Meaner
+# Aegis v2.1.0 for Hermes: Leaner and Meaner
 
-Aegis helps Hermes turn an idea into bounded work, tested changes, and reviewable
-decisions. It scales ceremony to risk while keeping humans accountable for
-consequential choices, rather than treating an agent's completion claim as proof.
+![Aegis: Build with AI. Decide with confidence.](assets/aegis-hero-v2.png)
 
-## What you get
+Aegis helps an AI coding assistant turn an idea into bounded work, tested changes, and reviewable decisions. It keeps the useful stage gates while scaling the paperwork to the actual risk.
 
-- One master specification, dependency-aware work packages, and inspectable evidence.
-- A non-implementing PM coordinating bounded delivery and independent review.
-- Risk-scaled gates covering scope, execution, acceptance, commit, deployment,
-  and closeout; explicit owner authority remains required for runtime promotion
-  and public release.
-- Contract-first work, unchanged-check verification, SecOps privacy stops, and
-  source-bound grounding controls.
+This is the **Hermes port** of [the original Aegis Codex skill](https://github.com/dotnetdavid/aegis), created by David A. Frey. The Codex original lives on GitHub; the Hermes port lives on GitLab. The original MIT license, copyright and permission notice are preserved in [LICENSE](LICENSE) and with the distributed skill. See [PORT-NOTES.md](PORT-NOTES.md) for pinned provenance and host adaptations.
 
-This is a source-faithful Hermes port of [upstream Aegis](https://github.com/dotnetdavid/aegis).
-It is guidance, not a sandbox, automated enforcement engine, model router, or
-permission system. See [PORT-NOTES.md](PORT-NOTES.md) for provenance and exact changes.
+This is a local review candidate for Hermes **2.1.0**. Use native `/aegis`; the invocation does not change with the version. Ask “What version of Aegis is loaded?” to read the live skill metadata without starting a workflow.
 
-## Install and invoke
+## How it works
 
-Copy the **complete** `skill/aegis` folder to
-`<active HERMES_HOME>/skills/software-development/aegis`, including every file
-under `references/` and its full license. Resolve the active profile's Hermes
-home first; do not assume another profile or host shares it. Deactivate any
-superseded active Aegis copies only under explicit owner authorization, preserving
-project records and source history outside discovery. This checkout does not
-perform installation or replacement.
+V2.1.0 adds one risk/control matrix and a compact brief for eligible reversible work; standard and higher-risk work retain their applicable controls. Candidate branch or MR actions, CI effects, merge, and promotion require separate authority.
 
-Windows and WSL are separate hosts. Start a fresh Hermes session after installing
-or replacing the skill, in the intended project directory. Confirm the loaded
-`aegis` source, actual working directory, and writable scope before writes.
+The PM coordinates scope, requirements, delegation, evidence, and communication without implementing product changes. Coder, Tester, SecOps, and Documentation roles do the work needed for the assignment. Independent review remains independent of the coordinating PM.
 
-```text
-/aegis Help scope this project and choose the appropriate risk path.
-```
+The nine gates remain: scope, build package, pre-code review, execution authorization, acceptance, commit, deployment, post-deployment acceptance, and push/MR/closeout. Applicability and evidence scale with risk. Explicit owner delegation can authorize bounded routine development decisions; it does not authorize new spending, expanded scope, production promotion, or public release.
 
-Natural-language `Use Aegis` and `$aegis` also trigger the same skill. Upstream
-`aegis2` and `$aegis2` are compatibility text triggers only: do not install a
-second skill for them. Native skill commands and progressive reference loading
-are described in the [Hermes skills documentation](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills).
+Each governed project has one current `spec.md`. Run-specific build packages refer to that specification rather than creating competing specifications. Decisions and verification evidence remain inspectable.
 
-## Try the bounded calculator example
+Aegis is procedural guidance for an assistant, not a sandbox, permission system, or guarantee that an agent cannot leave its mandate. Host permissions and human review still matter.
 
-In an empty isolated project, use the [baseline prompt](examples/calculator/calculator-create.md).
-After accepting it, use the [percent enhancement](examples/calculator/calculator-percent.md)
-in that same project. The prompts retain the upstream offline calculator scope
-and prohibit commit, deployment, and publication. They are examples, not executed
-test reports. Review the [runtime mapping](skill/aegis/references/hermes-runtime.md)
-for delegation, model-route limitations, and host safety boundaries.
+## Install
 
-## Verification and limits
+Use one active `aegis` slot in the discovery location for your actual Hermes profile. A profile-local installation normally copies the complete `skill/aegis` directory, including every reference and its MIT license, to `<active HERMES_HOME>/skills/software-development/aegis`. A `git pull` updates an installation only if Hermes discovers that checkout directly. If it discovers a separate copy, replace the entire package; do not merge old and new files.
 
-Independent engineering and bounded SecOps/privacy reviews accepted the port.
-Source-fidelity checks passed, and a fresh native Windows process exercised Hermes
-skill discovery, all six reference loads, `/aegis` resolution, and invocation-payload
-construction. The default-profile installation matches all seven reviewed skill
-files byte-for-byte; only one Aegis skill remains in the configured discovery roots.
-See [VERIFICATION.md](VERIFICATION.md) for evidence scope and limitations.
+Stage and verify the release outside live discovery. Close affected Hermes sessions; with owner approval for the exact locations, replace the one active slot without exposing a duplicate or stale copy. In a fresh session, verify the resolved source and version. Check for project-local or external sources which may shadow the active slot. On failure, stop without any restore, checkout or copy. Propose the prior Hermes release from [GitLab history](https://gitlab.com/dotnetdavid/aegis-hermes) by immutable commit and package digest, and name the exact destination. Obtain separate explicit scoped owner approval, including G7 for the active installation, before taking any recovery action. Do not use the Codex distribution or a second local copy. Windows and WSL may resolve separate profiles. See the [Hermes skills documentation](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills).
 
-These checks do not establish a complete governed LLM conversation, calculator
-execution, actual per-role model routing, Windows/WSL compatibility matrix,
-accessibility certification, hard containment, or performance guarantees. Start a
-fresh chat after replacement to discard earlier loaded instructions. Check actual
-available tools and model routes before governed work.
+Before starting Hermes, create and enter the project directory. A shell's current directory is not changed by a request to save the final result somewhere else. Verify the actual working directory and writable scope before any file creation. Never start a trial inside a credentials directory.
+
+## Getting started: calculator demo
+
+1. Follow the install steps above, then open a fresh Hermes session in an empty,
+   isolated project folder. Before any writes, confirm the actual `aegis` source, top-level version 2.1.0,
+   working directory, and writable scope.
+2. Open the [baseline prompt](examples/calculator/calculator-create.md) and
+   paste its text block into Hermes. Expect a self-contained offline calculator
+   with keyboard support, tested arithmetic, and recoverable errors.
+3. After reviewing and accepting the baseline, paste the
+   [percent prompt](examples/calculator/calculator-percent.md) into the same
+   project. Expect unary percent: 5% = 0.05, 50 × 5% = 2.5, and
+   200 + 10% = 200.1. Keep the original regression checks.
+
+Keep all project outputs in the isolated folder. Neither step requires a
+commit, deployment, or publication. The Hermes port and adapted prompts are included here.
+
+## Models and effort
+
+Use an approved project mapping to models actually available in the host. Record the actual model and reasoning route when exposed; otherwise mark them unknown. The proposed per-role model/effort/speed selection dialogue is not included in this candidate.
+
+## Validation and limits
+
+The following two paragraphs retain the original repository's **historical Codex validation**. They are not Hermes-port test results.
+
+Owner-provided PowerShell and WSL Codex session reports exercised a new calculator and a small percent enhancement using the lean UAT source. Both reported test-first work, regression checks, independent reviews and scoped gate closure. PowerShell used Firefox; WSL used Chromium with owner-run assistance when the automated browser sandbox was unavailable. These are owner-reported outcomes from the earlier lean source. A fresh rerun of this packaged example was deferred; no new calculator pass is claimed.
+
+The percent iteration reported 98 PowerShell acceptance cases plus the archived 58-case regression, and 102 WSL core cases plus the archived 63-case regression. Browser reports covered 20 Firefox groups and 31 Chromium checks. Counts are different suites, not a quality ranking or a controlled speed benchmark. No screen-reader certification, hard agent-containment proof, universal host compatibility or performance guarantee is claimed.
+
+[VERIFICATION.md](VERIFICATION.md) records historical v2.0 packaging evidence only. This v2.1.0 candidate has not been run in Hermes or through either calculator prompt. See [PORT-NOTES.md](PORT-NOTES.md) and [RELEASE-NOTES.md](RELEASE-NOTES.md) for scope and limits.
 
 ## Creator and license
 
-Created by David A. Frey. Copyright (c) 2026 David A. Frey.
-[MIT License](LICENSE); the same full legal text travels with the distributed
-skill in [references/LICENSE.md](skill/aegis/references/LICENSE.md).
+Created by David A. Frey.
+
+Copyright (c) 2026 David A. Frey. Licensed under the [MIT License](LICENSE). You may use, modify, and redistribute this work, including commercially, subject to the license terms. Keep the copyright and permission notice with copies or substantial portions.

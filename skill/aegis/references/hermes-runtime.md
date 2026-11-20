@@ -51,14 +51,36 @@ confirmations, transmission permissions, security controls, or approval gates.
 No skill invocation, example, model mapping, or PM delegation grants promotion
 or public-release authority; those remain explicit owner/HITL decisions.
 
-Install the complete folder at
-`<active HERMES_HOME>/skills/software-development/aegis`, retaining all references
-and LICENSE.md. Native `/aegis` loads the one canonical skill; natural-language
-Aegis and `$aegis` are text triggers. Upstream `aegis2`/`$aegis2` are compatibility
-text triggers, not extra installed skills or slash commands. Windows and WSL are
-separate hosts: verify each active profile and install scope independently.
-Start a fresh session after replacement so prior skill instructions do not remain
-in the conversation. Confirm the loaded skill source before governed work.
+## Read-only identity and version
+
+For a plain version question, use resolved metadata from this Hermes session
+when it proves the actual path and raw top-level `version` field. Otherwise,
+verify the raw top-level field from that exact resolved source using a known
+read-only native operation. The heading and description are not version
+evidence. Do not assume that `skill_view` or another resolver is side-effect
+free. If the only available route has unverified preprocessing, setup or other
+effects, do not invoke it; report the unverified fields as unknown.
+Do not inspect unrelated profiles, write project records, start gates, start
+delegation, or treat this request as permission to run project work.
+
+## Single-slot update
+
+The canonical folder is `<active HERMES_HOME>/skills/software-development/aegis`
+for a profile-local copy, with all references and its LICENSE.md. Native
+`/aegis` invokes this single name. Resolve Windows and WSL profiles separately,
+including any project-local or external directory that could shadow the package.
+A `git pull` updates the active package only if that checkout is the actual
+discovery source; otherwise replace the whole copied package, never merge it.
+
+Stage and verify outside live discovery. Close affected sessions; with owner
+approval for the exact locations, replace the complete selected slot without
+exposing any duplicate or stale copy. Start a fresh session and verify the
+actual resolved path and version. If verification fails, stop without any
+restore, checkout or copy. Propose the prior release from Hermes GitLab history
+by immutable commit and package digest, and name the exact destination.
+A rollback is a separate active installation: obtain explicit scoped owner
+approval, including G7, before any recovery action. Do not keep a local
+rollback copy or substitute the Codex package.
 
 Authoritative host documentation: https://hermes-agent.nousresearch.com/docs
 Skills: https://hermes-agent.nousresearch.com/docs/user-guide/features/skills

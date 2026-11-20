@@ -3,7 +3,7 @@
 Run this in the existing calculator project after completing and accepting the baseline. Use the same prompt for independent PowerShell and WSL projects.
 
 ```text
-Use /aegis, the canonical Hermes port of Aegis 2, to enhance this existing calculator; do not substitute an older installed version. Confirm the loaded skill, actual project directory and writable scope before writes. If the canonical aegis skill is unavailable, stop rather than substitute. Read the current master spec.md, prior acceptance and test evidence. Preserve baseline records and unrelated changes. Keep all new output inside this project.
+Use /aegis, the canonical Hermes skill, at exactly version 2.1.0. Before writes, verify and report the loaded name, top-level version, actual source, working directory, and writable workspace. Stop without writes if the skill, version, or source is unavailable or mismatched; do not substitute another package or version. Read the current master spec.md, prior acceptance and test evidence. Preserve baseline records and unrelated changes. Keep all new output inside this project.
 
 Add one percent button and keyboard % support. Define percent as a unary operation: divide the currently displayed operand or result by 100. It is not context-sensitive retail-calculator percentage behavior.
 
